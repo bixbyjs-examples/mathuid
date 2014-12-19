@@ -1,16 +1,16 @@
 exports = module.exports = function(logger) {
   
   function respond(req, res, next) {
-    res.render('add');
+    res.render('sub');
   }
 
   
   /**
-   * GET /add
+   * GET /sub
    *
    * CLI:
    *
-   *     $ curl http://127.0.0.1:8080/add
+   *     $ curl http://127.0.0.1:8080/sub
    */
   return [ respond ];
   

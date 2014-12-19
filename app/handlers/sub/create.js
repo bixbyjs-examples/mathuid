@@ -15,9 +15,9 @@ exports = module.exports = function(registry, logger) {
       var baseURL = records[0];
       if (baseURL[baseURL.length - 1] != '/') { baseURL += '/'; }
       
-      logger.debug('Sending add request to ' + baseURL);
+      logger.debug('Sending sub request to ' + baseURL);
       request.post({
-        url: baseURL + 'add',
+        url: baseURL + 'sub',
         body: { operands: [ parseFloat(req.body['1']), parseFloat(req.body['2']) ] },
         json: true,
         timeout: 60000
@@ -31,7 +31,7 @@ exports = module.exports = function(registry, logger) {
   }
   
   function respond(req, res, next) {
-    res.render('add-result');
+    res.render('sub-result');
   }
 
   
