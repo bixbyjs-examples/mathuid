@@ -1,5 +1,6 @@
-var bodyParser = require('body-parser')
-, errorHandler = require('errorhandler');
+var request = require('request')
+  , bodyParser = require('body-parser')
+  , errorHandler = require('errorhandler');
 
 
 exports = module.exports = function(registry, logger) {
@@ -9,24 +10,24 @@ exports = module.exports = function(registry, logger) {
     registry.resolve('math.common.', 'http://schemas.example.com/api/math/v1', function(err, records) {
       if (err) { return next(err); }
       
-      
-      console.log(err);
-      console.log(records);
-      
       var baseURL = records[0]; // base URL
       if (baseURL[baseURL.length - 1] != '/') { baseURL += '/'; }
       
-      next();
-      
+      request.post({
+        url: baseURL + 'add',
+        body: { operands: [ 1, 4 ] },
+        json: true,
+        timeout: 60000
+      }, function(err, resp, body) {
+        if (err) { return next(err); }
+        res.locals.result = body.result;
+        next();
+      });
     });
   }
   
   function respond(req, res, next) {
-    
-    
-    
-    
-    res.send('add stuff');
+    res.send('Result: ' + res.locals.result);
   }
 
   
