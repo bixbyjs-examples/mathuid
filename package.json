@@ -3,7 +3,7 @@
   "description": "UI for performing mathematical calculations.",
   "repository": {
     "type": "git",
-    "url": "git://github.com/bixbyjs-examples/mathd.git"
+    "url": "git://github.com/bixbyjs-examples/mathuid.git"
   },
   "dependencies": {
     "bixby-common": "git://github.com/bixbyjs/bixby-common.git",
