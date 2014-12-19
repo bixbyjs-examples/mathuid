@@ -4,8 +4,7 @@ var bodyParser = require('body-parser')
 
 exports = module.exports = function(registry, logger) {
   
-  function respond(req, res, next) {
-    
+  function add(req, res, next) {
     logger.debug('Resolving math service')
     registry.resolve('math.common.', 'http://schemas.example.com/api/math/v1', function(err, records) {
       if (err) { return next(err); }
@@ -17,12 +16,17 @@ exports = module.exports = function(registry, logger) {
       var baseURL = records[0]; // base URL
       if (baseURL[baseURL.length - 1] != '/') { baseURL += '/'; }
       
-      res.send('add stuff');
+      next();
       
     });
+  }
+  
+  function respond(req, res, next) {
     
     
-    //res.send('add stuff');
+    
+    
+    res.send('add stuff');
   }
 
   
@@ -33,7 +37,8 @@ exports = module.exports = function(registry, logger) {
    *
    *     $ curl -X POST -H "Content-Type: application/json" --data "{\"operands\":[1,2]}" http://127.0.0.1:8080/add
    */
-  return [ respond,
+  return [ add,
+           respond,
            errorHandler() ];
   
 }
