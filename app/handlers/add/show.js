@@ -1,7 +1,7 @@
 exports = module.exports = function(logger) {
   
   function respond(req, res, next) {
-    res.send('foo');;
+    res.render('add');
   }
 
   
