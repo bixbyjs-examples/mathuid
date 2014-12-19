@@ -1,0 +1,18 @@
+{
+  "name": "mathuid",
+  "description": "API providing mathematical operations.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bixbyjs-examples/mathd.git"
+  },
+  "dependencies": {
+    "bixby-common": "git://github.com/bixbyjs/bixby-common.git",
+    "bixby-express": "git://github.com/bixbyjs/bixby-express.git",
+    "bixby-sd": "git://github.com/bixbyjs/bixby-sd.git#feature/bootable",
+    "body-parser": "^1.10.0",
+    "bootable": "^0.2.4",
+    "electrolyte": "0.0.6",
+    "express": "^4.10.6",
+    "morgan": "^1.5.0"
+  }
+}
