@@ -1,4 +1,4 @@
-exports = module.exports = function(logger) {
+exports = module.exports = function() {
   
   function respond(req, res, next) {
     res.render('sub');
@@ -19,4 +19,4 @@ exports = module.exports = function(logger) {
 /**
  * Component annotations.
  */
-exports['@require'] = [ 'logger' ];
+exports['@require'] = [];
