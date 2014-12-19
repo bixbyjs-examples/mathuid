@@ -31,7 +31,8 @@ exports = module.exports = function(registry, logger) {
   }
   
   function respond(req, res, next) {
-    res.send('Result: ' + res.locals.result);
+    res.render('add-result');
+    //res.send('Result: ' + res.locals.result);
   }
 
   
